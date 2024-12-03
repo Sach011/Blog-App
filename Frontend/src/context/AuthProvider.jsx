@@ -14,7 +14,7 @@ export const AuthProvider = ({ children }) => {
         const parsedToken = token ? JSON.parse(token) : undefined;
         if (parsedToken) {
           const { data } = await axios.get(
-            "http://localhost:4001/api/user/my-profile",
+            `${import.meta.env.VITE_BACKEND_URL}/api/user/my-profile`,
             {
               withCredentials: true,
               headers: {
@@ -34,7 +34,7 @@ export const AuthProvider = ({ children }) => {
     const fetchBlogs = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:4001/api/blog/all-blogs"
+          `${import.meta.env.VITE_BACKEND_URL}/api/blog/all-blogs`
         );
 
         setBlogs(data);

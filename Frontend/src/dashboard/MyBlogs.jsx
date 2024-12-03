@@ -12,7 +12,7 @@ function MyBlogs() {
         const parsedToken = token ? JSON.parse(token) : undefined;
         if (parsedToken) {
           const { data } = await axios.get(
-            "http://localhost:4001/api/blog/my-blog",
+            `${import.meta.env.VITE_BACKEND_URL}/api/blog/my-blog`,
             {
               withCredentials: true,
               headers: {
@@ -34,7 +34,7 @@ function MyBlogs() {
     let token = localStorage.getItem("jwt");
     const parsedToken = token ? JSON.parse(token) : undefined;
     await axios
-      .delete(`http://localhost:4001/api/blog/delete/${id}`, {
+      .delete(`${import.meta.env.VITE_BACKEND_URL}/api/blog/delete/${id}`, {
         withCredentials: true,
         headers: { "Content-Type": "application/json", token: parsedToken },
       })

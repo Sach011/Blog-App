@@ -13,7 +13,7 @@ function Detail() {
       console.log("id", id);
       try {
         const { data } = await axios.get(
-          `http://localhost:4001/api/blog/single-blog/${id}`,
+          `${import.meta.env.VITE_BACKEND_URL}/api/blog/single-blog/${id}`,
           {
             withCredentials: true,
             headers: {

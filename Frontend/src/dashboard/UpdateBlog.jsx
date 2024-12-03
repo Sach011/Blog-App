@@ -30,7 +30,7 @@ function UpdateBlog() {
       console.log("id", id);
       try {
         const { data } = await axios.get(
-          `http://localhost:4001/api/blog/single-blog/${id}`,
+          `${import.meta.env.VITE_BACKEND_URL}/api/blog/single-blog/${id}`,
           {
             withCredentials: true,
             headers: { "Content-Type": "application/json", token: parsedToken },
@@ -61,7 +61,7 @@ function UpdateBlog() {
 
     try {
       const { data } = await axios.put(
-        `http://localhost:4001/api/blog/update/${id}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/blog/update/${id}`,
         formData,
         {
           headers: {

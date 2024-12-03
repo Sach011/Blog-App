@@ -7,7 +7,7 @@ function Creator() {
   useEffect(() => {
     const fetchAdmins = async () => {
       const { data } = await axios.get(
-        "http://localhost:4001/api/user/admins",
+        `${import.meta.env.VITE_BACKEND_URL}/api/user/admins`,
         {
           withCredentials: true,
         }

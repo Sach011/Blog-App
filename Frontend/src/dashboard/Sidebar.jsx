@@ -28,7 +28,7 @@ function Sidebar({ setComponent }) {
       const parsedToken = token ? JSON.parse(token) : undefined;
       if (parsedToken) {
         const { data } = await axios.get(
-          "http://localhost:4001/api/user/logout",
+          `${import.meta.env.VITE_BACKEND_URL}/api/user/logout`,
           {
             withCredentials: true,
             headers: { "Content-Type": "application/json", token: parsedToken },
